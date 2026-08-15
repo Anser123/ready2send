@@ -35,33 +35,19 @@ Ready2Send sends the link to its backend, where the video is downloaded and proc
 
 Once processing is complete, the prepared video is passed to WhatsApp and is ready to be sent.
 
-## 🏗️ Architecture
+## 🏗️ How Ready2Send Works
 
-```text
-┌──────────────────────────────┐
-│       Android Application    │
-│                              │
-│          Java + XML          │
-│                              │
-│  • Share Intent              │
-│  • UI / Activities           │
-│  • FileProvider              │
-│  • API Communication         │
-└──────────────┬───────────────┘
-               │
-               │ HTTP API
-               ▼
-┌──────────────────────────────┐
-│        Backend Server        │
-│                              │
-│        Python + FastAPI      │
-│                              │
-│  • API endpoints             │
-│  • Video processing          │
-│  • yt-dlp                    │
-│  • FFmpeg / FFprobe          │
-└──────────────────────────────┘
-```
+The overall Ready2Send flow is illustrated below:
+
+<p align="center">
+  <img src="AppFlow.png" alt="Ready2Send application flow" width="900">
+</p>
+
+The application follows a simple client-server workflow:
+
+1. **Share** — A supported video link is shared with Ready2Send from Android's share menu.
+2. **Prepare** — The Android app sends the link to the backend, where the video is downloaded and processed into an MP4.
+3. **Send** — The prepared video is returned to the Android app and passed to WhatsApp, ready to send.
 
 ## 🛠️ Tech Stack
 
@@ -91,17 +77,55 @@ Once processing is complete, the prepared video is passed to WhatsApp and is rea
 
 ## 📸 Screenshots
 
-| Main | Share Integration |
-|---|---|
-| ![Ready2Send Main Screen](App%20Screenshots/Main.jpeg) | ![Ready2Send Share Integration](App%20Screenshots/Icon%5FShareSheet.jpeg) |
+Here is the Ready2Send experience from start to finish.
 
-| Processing | Sending |
-|---|---|
-| ![Ready2Send Processing](App%20Screenshots/Processing.jpeg) | ![Ready2Send Sending](App%20Screenshots/Sending.jpeg) |
+### 1. Share from a supported app
 
-| Settings | Premium |
-|---|---|
-| ![Ready2Send Settings](App%20Screenshots/Settings.jpeg) | ![Ready2Send Premium](App%20Screenshots/Premium.jpeg) |
+Ready2Send appears directly in Android's share sheet. Select Ready2Send after finding a video you want to prepare for sharing.
+
+<p align="center">
+  <img src="App%20Screenshots/Icon%5FShareSheet.jpeg" alt="Ready2Send in the Android share sheet" width="300">
+</p>
+
+### 2. Processing the video
+
+After receiving the shared link, Ready2Send starts preparing the video through the backend.
+
+<p align="center">
+  <img src="App%20Screenshots/Processing.jpeg" alt="Ready2Send processing a video" width="300">
+</p>
+
+### 3. Sending to WhatsApp
+
+Once processing is complete, Ready2Send hands the prepared video over to WhatsApp.
+
+<p align="center">
+  <img src="App%20Screenshots/Sending.jpeg" alt="Ready2Send sending the video to WhatsApp" width="300">
+</p>
+
+### 4. Main screen
+
+The main screen provides the central Ready2Send workflow and shows the supported platforms.
+
+<p align="center">
+  <img src="App%20Screenshots/Main.jpeg" alt="Ready2Send main screen" width="300">
+</p>
+
+### 5. Settings
+
+The settings area provides access to app information, privacy policy, and terms of use.
+
+<p align="center">
+  <img src="App%20Screenshots/Settings.jpeg" alt="Ready2Send settings screen" width="300">
+</p>
+
+### 6. Premium
+
+The premium section is prepared for future subscription features and an ad-free experience.
+
+<p align="center">
+  <img src="App%20Screenshots/Premium.jpeg" alt="Ready2Send premium screen" width="300">
+</p>
 
 ## 🚀 Project Status
 
