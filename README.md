@@ -37,17 +37,18 @@ Once processing is complete, the prepared video is passed to WhatsApp and is rea
 
 ## 🏗️ How Ready2Send Works
 
-The overall Ready2Send flow is illustrated below:
+From the user's perspective, Ready2Send keeps the process simple:
 
 <p align="center">
-  <img src="AppFlow.png" alt="Ready2Send application flow" width="900">
+  <img src="AppFlow.png" alt="Ready2Send user flow" width="1000">
 </p>
 
-The application follows a simple client-server workflow:
-
-1. **Share** — A supported video link is shared with Ready2Send from Android's share menu.
-2. **Prepare** — The Android app sends the link to the backend, where the video is downloaded and processed into an MP4.
-3. **Send** — The prepared video is returned to the Android app and passed to WhatsApp, ready to send.
+1. **Share Link** — Find a video on a supported app and tap the Share button.
+2. **Choose Ready2Send** — Select Ready2Send from Android's share sheet.
+3. **Processing** — Ready2Send processes the video in the background.
+4. **Sending to WhatsApp** — Once ready, the video is opened in WhatsApp.
+5. **Review & Send** — Review the prepared video and send it to your contact.
+6. **Done** — The video has been sent successfully.
 
 ## 🛠️ Tech Stack
 
