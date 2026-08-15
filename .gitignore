@@ -1,0 +1,45 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# PyCharm / IntelliJ
+.idea/
+
+# Android / Gradle
+.gradle/
+build/
+*/build/
+local.properties
+.cxx/
+
+# Android generated files
+*.apk
+*.aab
+
+# Signing keys
+*.jks
+*.keystore
+
+# macOS
+.DS_Store
+
+# Temporary / downloaded media
+downloads/
+videos/
+*.mp4
+*.webm
+*.mov
+*.mkv
+
+# Environment / secrets
+.env
+*.env
+
+# Python temporary files
+*.tmp
+
+# Android release output
+*/release/
+UtilityAppAndroid/app/release/

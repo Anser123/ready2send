@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="4dp">
+
+    <!-- TOP BAR -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/premiumButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/top_button_background"
+            android:contentDescription="Premium"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_diamond" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/top_button_background"
+            android:contentDescription="Settings"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_settings" />
+
+    </LinearLayout>
+
+
+    <!-- LOGO -->
+
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-60dp"
+        android:contentDescription="Ready2Send logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ready2send_logo" />
+
+
+    <!-- TITLE -->
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-40dp"
+        android:text="Ready2Send"
+        android:textColor="@color/text_primary"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="1dp"
+        android:text="Get your videos ready to share."
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+
+    <!-- HOW IT WORKS -->
+
+    <TextView
+        android:id="@+id/howItWorksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/how_it_works_background"
+        android:gravity="center"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="HOW IT WORKS"
+        android:textColor="@color/mint_primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+    <!-- SHARE CARD -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/step_card_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/icon_box_background"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="Share"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_share" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Share a video with Ready2Send from a supported app."
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- ARROW -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="↓"
+        android:textColor="@color/mint_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <!-- PREPARE CARD -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/step_card_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/icon_box_background"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="Prepare"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_prepare" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prepare"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="We prepare your video as an MP4 ready to share."
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!-- ARROW -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="↓"
+        android:textColor="@color/mint_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+    <!-- SEND CARD -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/step_card_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:background="@drawable/icon_box_background"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="Send"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_send" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textColor="@color/text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Your video opens in WhatsApp, ready to send."
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!-- SUPPORTED PLATFORMS -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="SUPPORTED PLATFORMS"
+        android:textColor="@color/mint_primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Instagram -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/platform_chip_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/ic_instagram"
+                android:scaleType="centerInside"
+                android:contentDescription="Instagram" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Instagram"
+                android:textColor="@color/text_primary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <!-- YouTube -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="7dp"
+            android:background="@drawable/platform_chip_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/ic_youtube"
+                android:scaleType="centerInside"
+                android:contentDescription="YouTube" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="YouTube"
+                android:textColor="@color/text_primary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <!-- Facebook -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="7dp"
+            android:background="@drawable/platform_chip_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:src="@drawable/ic_facebook"
+                android:scaleType="centerInside"
+                android:contentDescription="Facebook" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Facebook"
+                android:textColor="@color/text_primary"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <!-- X -->
+
+        <LinearLayout
+            android:layout_width="34dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="7dp"
+            android:background="@drawable/platform_chip_background"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_x"
+                android:scaleType="centerInside"
+                android:contentDescription="X" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+<!--    &lt;!&ndash; FUTURE AD SPACE &ndash;&gt;-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/adSpace"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="17dp"-->
+<!--        android:background="@drawable/ad_space_background"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="1dp"-->
+<!--            android:text="Ad Space"-->
+<!--            android:textColor="@color/text_primary"-->
+<!--            android:textSize="12sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:text="Coming Soon"-->
+<!--            android:textColor="@color/text_secondary"-->
+<!--            android:textSize="9sp" />-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>

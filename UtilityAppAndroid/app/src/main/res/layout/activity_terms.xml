@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            android:padding="7dp"
+            android:scaleType="centerInside"
+            android:contentDescription="Back" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Terms of Use"
+        android:textColor="@color/text_primary"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Rules and responsibilities for using Ready2Send."
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="18dp"
+        android:overScrollMode="never">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms of Use
+
+Last updated: August 2026
+
+By using Ready2Send, you agree to these Terms of Use.
+
+1. About Ready2Send
+
+Ready2Send is a utility application that helps users prepare supported online video links for sharing through WhatsApp.
+
+2. User Responsibility
+
+You are responsible for the URLs and content that you submit through Ready2Send and for ensuring that your use of that content is lawful.
+
+You must have the necessary rights, permission, or other lawful basis to download, store, use, and share content that you process through Ready2Send.
+
+3. Copyright and Other Rights
+
+You must not use Ready2Send to infringe copyright, trademark, privacy, publicity, or other rights belonging to another person or organization.
+
+Ready2Send does not claim ownership of videos or other content processed through the service.
+
+4. Third-Party Platforms
+
+Ready2Send can process URLs from supported third-party platforms. These platforms are operated independently and may have their own terms, policies, restrictions, and technical limitations.
+
+Ready2Send is not affiliated with, sponsored by, or endorsed by Instagram, YouTube, Facebook, X, or WhatsApp.
+
+You are responsible for complying with the applicable rules and terms of the platform from which the content originates.
+
+5. Service Limitations
+
+Ready2Send currently supports videos up to 95 MB.
+
+A URL may fail to process because of platform restrictions, unavailable content, technical problems, network conditions, or other circumstances outside our control.
+
+We do not guarantee that every supported URL will always be successfully processed.
+
+6. Temporary Processing
+
+When you submit a URL, Ready2Send may temporarily download and store the requested video on its backend server so that it can be returned to your device.
+
+Temporary files are subject to automatic cleanup.
+
+7. Prohibited Use
+
+You must not use Ready2Send to:
+
+- access private or unauthorized content;
+- infringe the rights of another person or organization;
+- abuse, overload, or disrupt the Ready2Send service;
+- attempt to gain unauthorized access to our servers;
+- interfere with or circumvent technical protections of third-party services; or
+- use the service for unlawful purposes.
+
+8. Availability
+
+Ready2Send is provided on an availability basis.
+
+We may modify, suspend, restrict, or discontinue features of the application or backend service at any time.
+
+Supported platforms, file-size limits, and other technical capabilities may also change.
+
+9. No Guarantee
+
+We do not guarantee that Ready2Send will be available at all times or that every request will complete successfully.
+
+We are not responsible for failures caused by third-party platforms, network interruptions, unavailable content, or other circumstances outside our reasonable control.
+
+10. Updates to These Terms
+
+These Terms of Use may be updated when Ready2Send's functionality, service structure, or legal requirements change.
+
+The updated version will be made available in the application and, when applicable, through the public Terms of Use associated with the service.
+
+11. Contact
+
+For questions regarding these Terms of Use, contact:
+
+Anser Abbas
+Email: anser.abbas455@gmail.com
+
+By continuing to use Ready2Send, you agree to these Terms of Use."
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp" />
+
+    </ScrollView>
+
+</LinearLayout>

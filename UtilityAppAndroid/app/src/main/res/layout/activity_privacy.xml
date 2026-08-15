@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            android:padding="7dp"
+            android:scaleType="centerInside"
+            android:contentDescription="Back" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Privacy Policy"
+        android:textColor="@color/text_primary"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="How Ready2Send handles your information."
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="18dp"
+        android:overScrollMode="never">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy
+
+Last updated: August 2026
+
+Ready2Send is an Android application that helps users prepare supported video links for sharing through WhatsApp.
+
+1. Information You Provide
+
+When you use Ready2Send, you may intentionally provide a video URL by using Android's share function. The URL you submit is sent to our backend so that we can process the requested video.
+
+Ready2Send does not currently require you to create an account, provide your name, or provide your email address within the app.
+
+2. Information Processed During a Video Request
+
+When you submit a URL, our backend may process the URL and retrieve the requested media from the supported third-party platform. The retrieved video may be temporarily stored on our server while the request is being processed.
+
+The purpose of this processing is to prepare the requested video and return it to your device so that you can share it through WhatsApp.
+
+3. Temporary Video Files
+
+Video files downloaded during processing are stored temporarily on the backend server. Our current backend performs cleanup of temporary downloaded files when a new processing request begins.
+
+Ready2Send does not intend to keep downloaded videos as a permanent personal media library.
+
+4. Third-Party Platforms
+
+Ready2Send can process URLs from supported third-party platforms. Those platforms are operated independently of Ready2Send and have their own privacy policies, terms, and data practices.
+
+Ready2Send is not affiliated with, sponsored by, or endorsed by Instagram, YouTube, Facebook, X, or WhatsApp.
+
+5. Device Information
+
+Ready2Send does not intentionally collect your device MAC address, IMEI, phone contacts, or precise location.
+
+The app may receive technical network information as part of normal communication between your device and our backend server, such as an IP address. This information may be present in normal server logs used for security, troubleshooting, and service operation.
+
+6. Sharing of Information
+
+The URL you submit is transmitted to our backend for processing. Depending on the requested platform and the technical method used to retrieve the content, the URL or request may also be processed through third-party retrieval tools or services used by our backend.
+
+We do not sell the URLs you submit or downloaded video files as a product.
+
+7. Security
+
+Ready2Send takes reasonable technical measures to protect information handled by the service. However, no method of transmitting or storing information over the internet can be guaranteed to be completely secure.
+
+8. Data Retention and Deletion
+
+Temporary downloaded video files are subject to automatic cleanup by our backend. Other technical records, such as server logs, may be retained for a limited period where necessary for security, troubleshooting, and service operation.
+
+Ready2Send does not currently maintain a user account database containing personal profiles.
+
+9. Children
+
+Ready2Send is not designed specifically for children. Users should only use the service in accordance with applicable laws and the requirements of the platforms whose content they process.
+
+10. Changes to This Privacy Policy
+
+This Privacy Policy may be updated when Ready2Send's functionality, data practices, or legal requirements change. The updated version will be made available in the app and, when applicable, at the public privacy-policy URL associated with the app.
+
+11. Contact
+
+For privacy questions or concerns regarding Ready2Send, contact:
+
+Anser Abbas
+Email: anser.abbas455@gmail.com
+
+By using Ready2Send, you acknowledge this Privacy Policy."
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp" />
+
+    </ScrollView>
+
+</LinearLayout>

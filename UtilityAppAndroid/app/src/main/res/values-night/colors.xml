@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="mint_primary">#34D3AE</color>
+    <color name="mint_light">#173B34</color>
+    <color name="how_it_works_card">#182522</color>
+    <color name="platform_chip_background">#17211F</color>
+    <color name="platform_chip_border">#28584C</color>
+    <color name="app_background">#111827</color>
+
+</resources>
