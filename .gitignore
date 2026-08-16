@@ -43,3 +43,4 @@ videos/
 # Android release output
 */release/
 UtilityAppAndroid/app/release/
+UtilityApp/venv/
