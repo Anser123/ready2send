@@ -70,7 +70,7 @@ public class ShareActivity extends AppCompatActivity {
         new Thread(() -> {
             try {
                 URL apiUrl =
-                        new URL("http://192.168.18.163:8000/process");
+                        new URL("http://35.209.212.44:8000/process");
                 HttpURLConnection connection =
                         (HttpURLConnection) apiUrl.openConnection();
                 connection.setRequestMethod("POST");
