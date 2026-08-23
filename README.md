@@ -117,31 +117,7 @@ Videos exceeding the current **95 MB limit** are rejected rather than compressed
 
 Here is the current Ready2Send experience.
 
-### 1. Share from a supported app
-
-Ready2Send appears directly in Android's share sheet. Select Ready2Send after finding a video you want to prepare for sharing.
-
-<p align="center">
-  <img src="App%20Screenshots/Icon%5FShareSheet.jpeg" alt="Ready2Send in the Android share sheet" width="300">
-</p>
-
-### 2. Processing the video
-
-After receiving the shared link, Ready2Send starts preparing the video through the backend.
-
-<p align="center">
-  <img src="App%20Screenshots/Processing.jpeg" alt="Ready2Send processing a video" width="300">
-</p>
-
-### 3. Sending to WhatsApp
-
-When WhatsApp mode is selected, Ready2Send hands the prepared video over to WhatsApp after processing and the ad stage are complete.
-
-<p align="center">
-  <img src="App%20Screenshots/Sending.jpeg" alt="Ready2Send sending the video to WhatsApp" width="300">
-</p>
-
-### 4. Main screen
+### 1. Main screen
 
 The main screen provides the central Ready2Send workflow and shows the supported platforms.
 
@@ -149,7 +125,7 @@ The main screen provides the central Ready2Send workflow and shows the supported
   <img src="App%20Screenshots/Main.jpeg" alt="Ready2Send main screen" width="300">
 </p>
 
-### 5. Settings
+### 2. Settings
 
 The Settings screen allows the user to choose whether Ready2Send should automatically open WhatsApp or display Android's Share Sheet after processing.
 
@@ -157,15 +133,23 @@ The Settings screen allows the user to choose whether Ready2Send should automati
   <img src="App%20Screenshots/Settings.jpeg" alt="Ready2Send settings screen" width="300">
 </p>
 
-### 6. Premium
+### 3. Share from a supported app
 
-The premium section is prepared for future subscription features and an ad-free experience.
+Ready2Send appears directly in Android's share sheet. Select Ready2Send after finding a video you want to prepare for sharing.
 
 <p align="center">
-  <img src="App%20Screenshots/Premium.jpeg" alt="Ready2Send Premium screen" width="300">
+  <img src="App%20Screenshots/Icon%5FShareSheet.jpeg" alt="Ready2Send in the Android share sheet" width="300">
 </p>
 
-### 7. Interstitial advertisement
+### 4. Processing the video
+
+After receiving the shared link, Ready2Send starts preparing the video through the backend.
+
+<p align="center">
+  <img src="App%20Screenshots/Processing.jpeg" alt="Ready2Send processing a video" width="300">
+</p>
+
+### 5. Interstitial advertisement
 
 A full-screen interstitial advertisement may appear while the backend continues processing the video.
 
@@ -173,21 +157,43 @@ A full-screen interstitial advertisement may appear while the backend continues 
   <img src="App%20Screenshots/TestAd.jpeg" alt="Ready2Send interstitial advertisement" width="300">
 </p>
 
-### 8. Opening the Share Sheet
+
+### 6. Sending to WhatsApp
+
+When WhatsApp mode is selected, Ready2Send hands the prepared video over to WhatsApp after processing and the ad stage are complete.
+
+<p align="center">
+  <img src="App%20Screenshots/Sending.jpeg" alt="Ready2Send sending the video to WhatsApp" width="300">
+</p>
+
+### 7. Opening the Share Sheet
 
 When Share Sheet mode is selected, Ready2Send displays a short finalization message before opening Android's sharing interface.
 
 <p align="center">
-  <img src="App%20Screenshots/OpeningShareSheet.jpeg" alt="Ready2Send opening the Android Share Sheet" width="300">
+  <img src="App%20Screenshots/Opening.jpeg" alt="Ready2Send opening the Android Share Sheet" width="300">
 </p>
 
-### 9. Share Sheet
+### 8. Share Sheet
 
 The prepared MP4 is passed to Android's Share Sheet, allowing the user to select the destination.
 
 <p align="center">
-  <img src="App%20Screenshots/ShareSheet.jpeg" alt="Ready2Send Android Share Sheet" width="300">
+  <img src="App%20Screenshots/Sharesheet.jpeg" alt="Ready2Send Android Share Sheet" width="300">
 </p>
+
+### 9. Premium
+
+The premium section is prepared for future subscription features and an ad-free experience.
+
+<p align="center">
+  <img src="App%20Screenshots/Premium.jpeg" alt="Ready2Send Premium screen" width="300">
+</p>
+
+
+
+
+
 
 ## 🚀 Project Status
 
