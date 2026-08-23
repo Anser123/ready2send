@@ -1,5 +1,23 @@
 package com.example.utilityappandroid;
 
+import com.google.android.libraries.ads.mobile.sdk.MobileAds;
+import com.google.android.libraries.ads.mobile.sdk.initialization.InitializationConfig;
+
+import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.AdRequest;
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
+
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAd;
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAdEventCallback;
+
+import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.AdRequest;
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,16 +46,125 @@ import java.nio.charset.StandardCharsets;
 public class ShareActivity extends AppCompatActivity {
     private Dialog progressDialog;
 
+    private static final String AD_UNIT_ID =
+            "ca-app-pub-3940256099942544/1033173712";
+
+    private InterstitialAd interstitialAd;
+
+    private boolean processingFinished = false;
+    private boolean adFinished = false;
+    private File processedVideoFile;
+    private boolean adDelayFinished = false;
+    private boolean adWaitExpired = false;
+    private boolean shareTriggered = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        new Thread(() -> {
+
+            MobileAds.initialize(
+                    this,
+                    new InitializationConfig.Builder(
+                            "ca-app-pub-3940256099942544~3347511713"
+                    ).build(),
+                    initializationStatus -> {
+
+                        Log.d(
+                                "Ready2SendAds",
+                                "Mobile Ads SDK initialized"
+                        );
+
+                        loadInterstitialAd();
+                    }
+            );
+
+        }).start();
+
         Window window = getWindow();
         window.setStatusBarColor(
                 android.graphics.Color.TRANSPARENT
         );
         handleSharedContent(getIntent());
+
     }
 
+    private void loadInterstitialAd() {
+
+        InterstitialAd.load(
+                new AdRequest.Builder(AD_UNIT_ID).build(),
+                new AdLoadCallback<InterstitialAd>() {
+
+                    @Override
+                    public void onAdLoaded(
+                            @NonNull InterstitialAd ad) {
+
+                        interstitialAd = ad;
+
+                        if (adDelayFinished) {
+                            showInterstitialAdIfReady();
+                        }
+
+                        interstitialAd.setAdEventCallback(
+                                new InterstitialAdEventCallback() {
+
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+
+                                        interstitialAd = null;
+                                        adFinished = true;
+
+                                        Log.d(
+                                                "Ready2SendAds",
+                                                "Interstitial ad dismissed"
+                                        );
+
+                                        checkIfReadyToShare();
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToShowFullScreenContent(
+                                            @NonNull FullScreenContentError error) {
+
+                                        interstitialAd = null;
+                                        adFinished = true;
+
+                                        Log.e(
+                                                "Ready2SendAds",
+                                                "Interstitial ad failed to show: "
+                                                        + error.getMessage()
+                                        );
+
+                                        checkIfReadyToShare();
+                                    }
+                                }
+                        );
+
+                        Log.d(
+                                "Ready2SendAds",
+                                "Interstitial ad loaded"
+                        );
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(
+                            @NonNull LoadAdError adError) {
+
+                        interstitialAd = null;
+                        adFinished = true;
+
+                        Log.e(
+                                "Ready2SendAds",
+                                "Interstitial ad failed to load: "
+                                        + adError.getMessage()
+                        );
+
+                        checkIfReadyToShare();
+                    }
+                }
+        );
+    }
     private void handleSharedContent(Intent intent) {
 
         if (!Intent.ACTION_SEND.equals(intent.getAction())) {
@@ -64,6 +191,34 @@ public class ShareActivity extends AppCompatActivity {
 
         showProcessingDialog();
         sendURLToFlow(videoUrl);
+
+        new android.os.Handler(
+                android.os.Looper.getMainLooper()
+        ).postDelayed(() -> {
+
+            adDelayFinished = true;
+            showInterstitialAdIfReady();
+
+            new android.os.Handler(
+                    android.os.Looper.getMainLooper()
+            ).postDelayed(() -> {
+
+                if (!adFinished && interstitialAd == null) {
+
+                    adWaitExpired = true;
+                    adFinished = true;
+
+                    Log.d(
+                            "Ready2SendAds",
+                            "Ad wait expired - skipping ad"
+                    );
+
+                    checkIfReadyToShare();
+                }
+
+            }, 5000);
+
+        }, 2000);
     }
 
     private void sendURLToFlow(String url) {
@@ -214,6 +369,9 @@ public class ShareActivity extends AppCompatActivity {
                                     + outputFile.getAbsolutePath()
                     );
 
+                    processedVideoFile = outputFile;
+                    processingFinished = true;
+
                     runOnUiThread(() -> {
 
                         TextView processingText =
@@ -221,24 +379,25 @@ public class ShareActivity extends AppCompatActivity {
                                         R.id.processingText
                                 );
 
+                        android.content.SharedPreferences preferences =
+                                getSharedPreferences(
+                                        "Ready2SendPrefs",
+                                        MODE_PRIVATE
+                                );
+
+                        boolean openWhatsApp =
+                                preferences.getBoolean(
+                                        "open_whatsapp_after_processing",
+                                        true
+                                );
+
                         processingText.setText(
-                                "Sending to WhatsApp..."
+                                openWhatsApp
+                                        ? "Sending to WhatsApp..."
+                                        : "Opening Share Sheet..."
                         );
 
-                        new android.os.Handler(
-                                android.os.Looper.getMainLooper()
-                        ).postDelayed(() -> {
-
-                            if (progressDialog != null
-                                    && progressDialog.isShowing()) {
-
-                                progressDialog.dismiss();
-                            }
-
-                            shareVideo(outputFile);
-
-                        }, 1000);
-
+                        checkIfReadyToShare();
                     });
 
                 } else {
@@ -336,6 +495,7 @@ public class ShareActivity extends AppCompatActivity {
     }
 
     private void shareVideo(File videoFile) {
+
         Uri videoUri =
                 FileProvider.getUriForFile(
                         this,
@@ -346,7 +506,9 @@ public class ShareActivity extends AppCompatActivity {
 
         Intent shareIntent =
                 new Intent(Intent.ACTION_SEND);
+
         shareIntent.setType("video/mp4");
+
         shareIntent.putExtra(
                 Intent.EXTRA_STREAM,
                 videoUri
@@ -356,21 +518,67 @@ public class ShareActivity extends AppCompatActivity {
                 Intent.FLAG_GRANT_READ_URI_PERMISSION
         );
 
-        // Directly open WhatsApp
-        try {
-            shareIntent.setPackage("com.whatsapp");
-            startActivity(shareIntent);
-            finish();
+        android.content.SharedPreferences preferences =
+                getSharedPreferences(
+                        "Ready2SendPrefs",
+                        MODE_PRIVATE
+                );
 
-        } catch (Exception e) {
-            Log.e(
-                    "SHARE",
-                    "WhatsApp could not be opened",
-                    e
-            );
-            showError(
-                    "WhatsApp is not installed on this device."
-            );
+        boolean openWhatsApp =
+                preferences.getBoolean(
+                        "open_whatsapp_after_processing",
+                        true
+                );
+
+        if (openWhatsApp) {
+
+            // Open WhatsApp directly
+            try {
+
+                shareIntent.setPackage("com.whatsapp");
+
+                startActivity(shareIntent);
+                finish();
+
+            } catch (Exception e) {
+
+                Log.e(
+                        "SHARE",
+                        "WhatsApp could not be opened",
+                        e
+                );
+
+                showError(
+                        "WhatsApp is not installed on this device."
+                );
+            }
+
+        } else {
+
+            // Open Android Share Sheet
+            try {
+
+                Intent chooser =
+                        Intent.createChooser(
+                                shareIntent,
+                                "Send video with"
+                        );
+
+                startActivity(chooser);
+                finish();
+
+            } catch (Exception e) {
+
+                Log.e(
+                        "SHARE",
+                        "Share Sheet could not be opened",
+                        e
+                );
+
+                showError(
+                        "Could not open the Share Sheet."
+                );
+            }
         }
     }
 
@@ -451,5 +659,51 @@ public class ShareActivity extends AppCompatActivity {
                 );
             }
         });
+    }
+
+    private void showInterstitialAdIfReady() {
+
+        if (!adDelayFinished || adWaitExpired) {
+            return;
+        }
+
+        if (interstitialAd != null) {
+
+            Log.d(
+                    "Ready2SendAds",
+                    "Showing interstitial ad"
+            );
+
+            interstitialAd.show(this);
+
+        } else {
+
+            Log.d(
+                    "Ready2SendAds",
+                    "Interstitial ad not ready yet"
+            );
+        }
+    }
+
+    private void checkIfReadyToShare() {
+
+        if (processingFinished && adFinished && !shareTriggered) {
+
+            shareTriggered = true;
+
+            new android.os.Handler(
+                    android.os.Looper.getMainLooper()
+            ).postDelayed(() -> {
+
+                if (progressDialog != null
+                        && progressDialog.isShowing()) {
+
+                    progressDialog.dismiss();
+                }
+
+                shareVideo(processedVideoFile);
+
+            }, 700);
+        }
     }
 }
